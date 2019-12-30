@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sishuok.architecture1.filemgr.dao.interfances.IFileInfoDao">
+
+	<insert id="create" parameterType="FileInfo">
+		insert into tbl_file
+		(uuid,fileName,remotePaths)
+		VALUES(#{uuid},#{fileName},#{remotePaths});
+	</insert>
+	
+	<update id="update" parameterType="FileInfo">
+		update tbl_file
+		<trim prefix="set" suffixOverrides=",">
+			<if test="uuid != null">uuid = #{uuid},</if>
+			<if test="fileName != null">fileName = #{fileName},</if>
+			<if test="remotePaths != null">remotePaths = #{remotePaths},</if>
+		</trim>
+		where uuid = #{uuid};
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from tbl_file where uuid = #{uuid};
+	</delete>
+	
+	<select id="getByUuid" resultType="FileInfo" parameterType="int">
+		select * from tbl_file where uuid = #{uuid};
+	</select>
+	
+	<select id="getByCondition" resultType="FileInfo" parameterType="int">
+		select * from tbl_file
+		<where>
+			<if test="uuid!=null &amp;&amp; uuid > 0">
+				and uuid = #{uuid}
+			</if>
+			<if test="fileName!=null &amp;&amp; fileName!=''">
+				and fileName = #{fileName}
+			</if>
+			<if test="remotePaths!=null &amp;&amp; remotePaths!=''">
+				and remotePaths like "%" #{remotePaths} "%"
+			</if>
+		</where>
+	</select>
+	<select id="getAll" resultType="FileInfo">
+		select * from tbl_file
+	</select>
+	<select id="getByfileName" resultType="FileInfo" parameterType="String">
+		select * from tbl_file where fileName = #{fileName};
+	</select>
+	
+</mapper>

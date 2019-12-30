@@ -1,0 +1,6 @@
+com\sishuok\architecture1\storemgr\service\impl\StoreServiceImpl.class
+com\sishuok\architecture1\storemgr\service\interfances\IStoreService.class
+com\sishuok\architecture1\storemgr\web\action\StoreController.class
+com\sishuok\architecture1\storemgr\web\webModel\StoreWebModel.class
+com\sishuok\architecture1\storemgr\bean\StoreModel.class
+com\sishuok\architecture1\storemgr\dao\interfances\IStoredao.class

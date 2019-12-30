@@ -1,0 +1,15 @@
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\bean\OrderModel.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\queue\OrderMessageListener.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\service\impl\OrderServiceImpl.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\dao\interfances\IOrderDao.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\web\action\OrderController.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\web\webModel\OrderDetailWebModel.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\ClientTest.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\web\webModel\OrderWebModel.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\queue\QueueSender.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\web\action\OrderDetailController.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\service\interfances\IOrderDetailService.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\bean\OrderDetailModel.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\dao\interfances\IOrderDetailDao.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\service\impl\OrderDetailServiceImpl.java
+H:\eclipse\workSpaceTestMaven\architecture1\ordermgr\src\main\java\com\sishuok\architecture1\ordermgr\service\interfances\IOrderService.java

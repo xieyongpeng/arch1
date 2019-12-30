@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.sishuok.architecture1.cartmgr.bean.CartModel" alias="CartM"/>
+	</typeAliases>
+	<!-- 用于分页，拦截修改SQL -->
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+		</plugin>
+	</plugins>
+</configuration> 

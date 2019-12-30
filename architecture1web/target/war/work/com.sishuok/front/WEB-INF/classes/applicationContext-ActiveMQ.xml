@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		">
+	<bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory"
+		destroy-method="stop">
+		<property name="connectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL">
+					<value>${activeMQ.url}</value>
+				</property>
+			</bean>
+		</property>
+		<property name="maxConnections" value="${activeMQ.maxConnections}"></property>
+	</bean>
+
+	<!-- 配置生产者 -->
+	<!-- Spring提供的JMS工具类，它可以进行消息发送、接收等 -->
+	<bean id="senderJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<!-- 这个connectionFactory对应的是我们定义的Spring提供的那个ConnectionFactory对象 -->
+		<property name="connectionFactory" ref="jmsFactory" />
+
+		<property name="defaultDestination" ref="destination" />
+
+		<property name="sessionTransacted" value="${activeMQ.sessionTransacted}" />
+		<property name="sessionAcknowledgeModeName" value="${activeMQ.sessionAcknowledgeModeName}" />
+	</bean>
+
+	<!-- <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate"> 
+		<property name="connectionFactory" ref="jmsFactory" /> <property name="defaultDestination" 
+		ref="destination" /> <property name="messageConverter"> <bean class="org.springframework.jms.support.converter.SimpleMessageConverter" 
+		/> </property> </bean> -->
+
+	<bean id="destination" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg index="0" value="order-queue" />
+	</bean>
+
+	<bean id="messageListener" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="jmsFactory" />
+		<property name="destination" ref="destination" />
+		<property name="messageListener" ref="OrderMessageListener"></property>
+		<property name="maxMessagesPerTask" value="${activeMQ.maxMessagesPerTask}"></property>
+		<property name="concurrency" value="${activeMQ.concurrency}"></property>
+	</bean>
+	
+	<bean id="OrderMessageListener" class="com.sishuok.architecture1.ordermgr.queue.OrderMessageListener"></bean>
+
+</beans>

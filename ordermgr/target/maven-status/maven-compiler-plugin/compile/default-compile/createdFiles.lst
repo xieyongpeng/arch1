@@ -1,0 +1,17 @@
+com\sishuok\architecture1\ordermgr\dao\interfances\IOrderDao.class
+com\sishuok\architecture1\ordermgr\bean\OrderModel.class
+com\sishuok\architecture1\ordermgr\queue\QueueSender$1.class
+com\sishuok\architecture1\ordermgr\web\webModel\OrderWebModel.class
+com\sishuok\architecture1\ordermgr\dao\interfances\IOrderDetailDao.class
+com\sishuok\architecture1\ordermgr\service\impl\OrderServiceImpl.class
+com\sishuok\architecture1\ordermgr\service\interfances\IOrderDetailService.class
+com\sishuok\architecture1\ordermgr\bean\OrderDetailModel.class
+com\sishuok\architecture1\ordermgr\queue\QueueSender.class
+com\sishuok\architecture1\ordermgr\web\webModel\OrderDetailWebModel.class
+com\sishuok\architecture1\ordermgr\web\action\OrderDetailController.class
+com\sishuok\architecture1\ordermgr\service\interfances\IOrderService.class
+ClientTest.class
+com\sishuok\architecture1\ordermgr\web\action\OrderController.class
+com\sishuok\architecture1\ordermgr\queue\OrderMessageListener.class
+com\sishuok\architecture1\ordermgr\queue\QueueSender$2.class
+com\sishuok\architecture1\ordermgr\service\impl\OrderDetailServiceImpl.class

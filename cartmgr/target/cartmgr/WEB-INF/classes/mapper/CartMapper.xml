@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.sishuok.architecture1.cartmgr.dao.interfances.ICartDAO">  
+     <insert id="create" parameterType="CartM">
+     	insert into tbl_cart (customerUuid,goodsUuid,buyNum) 
+     	 values(#{customerUuid},#{goodsUuid},#{buyNum})
+     </insert>
+     <update id="update" parameterType="CartM">
+     	update tbl_cart set customerUuid=#{customerUuid},goodsUuid=#{goodsUuid},buyNum=#{buyNum}
+     	   	where uuid=#{uuid}
+     </update>
+     <delete id="delete" parameterType="int">
+     	delete from tbl_cart where uuid=#{uuid}
+     </delete>
+     
+    <select id="getByUuid" parameterType="int" resultType="CartM">  
+        select * from tbl_cart where uuid=#{uuid}
+    </select>  
+    <select id="getByCondition" parameterType="CartM" resultType="CartM">  
+        select * from tbl_cart
+        <where>
+        	<if test="uuid!=null &amp;&amp; uuid > 0">
+        		and uuid=#{uuid}
+        	</if>  
+        	<if test="customerUuid!=null &amp;&amp; customerUuid > 0">
+        		and customerUuid=#{customerUuid}
+        	</if>
+        </where>
+    </select> 
+    <select id="getAll" resultType="CartM">
+		select * from tbl_cart
+	</select>
+</mapper>

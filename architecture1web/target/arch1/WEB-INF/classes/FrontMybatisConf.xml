@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="com.sishuok.architecture1.customermgr.bean.CustomerModel" alias="CM"/>
+		<typeAlias type="com.sishuok.architecture1.cartmgr.bean.CartModel" alias="CartM"/>
+		<typeAlias type="com.sishuok.architecture1.goodsmgr.bean.GoodsModel" alias="GM"/>
+		<typeAlias type="com.sishuok.architecture1.ordermgr.bean.OrderModel" alias="OM"/>
+		<typeAlias type="com.sishuok.architecture1.ordermgr.bean.OrderDetailModel" alias="ODM"/>
+		<typeAlias type="com.sishuok.architecture1.storemgr.bean.StoreModel" alias="StoreM"/>
+	</typeAliases>
+
+	<!-- 用于分页，拦截修改SQL -->
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+		</plugin>
+	</plugins>
+</configuration> 
