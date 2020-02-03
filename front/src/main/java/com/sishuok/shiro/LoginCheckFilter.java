@@ -61,7 +61,6 @@ public class LoginCheckFilter implements Filter{
 	}
 
 	public void destroy() {
-		
 	}
 
 }
