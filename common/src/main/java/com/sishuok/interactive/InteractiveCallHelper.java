@@ -6,7 +6,9 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSON;
 import com.sishuok.interactive.bean.CsfModel;
+import com.sishuok.util.interactive.InteractiveUtil;
 
 public class InteractiveCallHelper {
 	/**
@@ -35,6 +37,7 @@ public class InteractiveCallHelper {
 		
 		//2：准备要传递的数据，把Map转换成为Json
 		String paramStr = JSON.toJSONString(mapParams);
+		//#在URL中有其他意义
 		paramStr = paramStr.replace("#","*");
 		
 		//3：拼接一个远程调用的URL

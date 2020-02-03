@@ -2,6 +2,9 @@ package com.sishuok.architecture1;
 
 import java.util.List;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +18,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sishuok.architecture1.cartmgr.bean.CartModel;
 import com.sishuok.architecture1.cartmgr.service.interfances.ICartService;
+import com.sishuok.architecture1.customermgr.bean.CustomerModel;
 import com.sishuok.architecture1.goodsmgr.bean.GoodsModel;
 import com.sishuok.architecture1.goodsmgr.service.interfances.IGoodsService;
 import com.sishuok.architecture1.ordermgr.service.interfances.IOrderDetailService;
@@ -36,6 +40,8 @@ public class IndexController {
 	private IOrderDetailService iods = null;
 	@Autowired
 	private IStoreService iss = null;
+	@Autowired
+	private SecurityManager sm = null;
 	
 	private final int PAGE_NUM = 100;
 	
@@ -50,6 +56,11 @@ public class IndexController {
 		PageInfo pageInfo = new PageInfo(goodsList);
 		
 		model.addAttribute("page",pageInfo);
+		
+		SecurityUtils.setSecurityManager(sm);
+		Subject currentUser = SecurityUtils.getSubject();
+		CustomerModel cm = (CustomerModel)currentUser.getSession().getAttribute("Login_Customer");
+		System.out.println("now cm==="+cm);
 		
 		return "index";
 	}

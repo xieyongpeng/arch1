@@ -13,12 +13,12 @@
 		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
 		"
 		>
-	
+	<!--  
 	<mongo:mongo host="192.168.174.3" port="27017"></mongo:mongo>
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">     
 	     <constructor-arg ref="mongo"/>     
 	     <constructor-arg name="databaseName" value="arch1"/>  
-	</bean> 
+	</bean> -->
 	
 	
 	

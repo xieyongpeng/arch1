@@ -24,7 +24,7 @@ import com.sishuok.ClientTest;
 import com.sishuok.architecture1.customermgr.bean.CustomerModel;
 import com.sishuok.architecture1.customermgr.dao.interfances.ICustomerMongoDao;
 
-@Service
+//@Service
 public class CustomerMongoDaoImpl implements ICustomerMongoDao {
 
 	@Autowired
