@@ -13,7 +13,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="myTag" tagdir="/WEB-INF/tags" %>
 
-
+<esi:include src="${pageContext.request.contextPath}/toShowLoginUser"/>
 <table width="50" align="center">
 	<tr>
 		<td colspan=2><a href="${pageContext.request.contextPath}/toCart">查看购物车</a></td>

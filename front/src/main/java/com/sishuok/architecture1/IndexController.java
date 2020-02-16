@@ -73,6 +73,19 @@ public class IndexController {
 		return "goods/desc";
 	}
 	
+	@RequestMapping(value="/toShowLoginUser",method=RequestMethod.GET)
+	public String toShowLoginUser(Model model){
+		SecurityUtils.setSecurityManager(sm);
+		Subject currentUser = SecurityUtils.getSubject();
+		
+		CustomerModel cm = (CustomerModel)currentUser.getSession().getAttribute("Login_Customer");
+		
+		model.addAttribute("customerInfo",cm);
+		
+		
+		return "common/loginUser";
+	}
+	
 	@RequestMapping(value="/addToCart/{goodsUuid}",method=RequestMethod.GET)
 	public String addToCart(Model model,@PathVariable("goodsUuid")int goodsUuid,@CookieValue("MyLogin")String myLogin){
 		int customerUuid = Integer.parseInt( myLogin.split("#")[0]);
